@@ -6,54 +6,64 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:40:19 by rmetge            #+#    #+#             */
-/*   Updated: 2024/12/19 18:52:22 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/08 15:24:46 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void	ra(t_list **a)
+void	ra(t_listi **a)
 {
-	t_list	*node;
+	t_listi	*node;
 
-	node = (t_list*) malloc(sizeof(t_list));
-	if (!node)
-		return;
 	node = (*a)->next;
 	(*a)->next = NULL;
-	ft_lstadd_back(&node, *a);
+	ft_lstiadd_back(&node, *a);
 	*a = node;
-	ft_lstiter((*a), print);
 }
 
-int	main()
+void	rb(t_listi **b)
 {
-	t_list *mylista;
-	t_list *mylistb;
+	t_listi	*node;
 
-	int	a = 11;
-	int b = 10;
-	int c = 12;
-	int d = 13;
-	int e = 14;
-	int	f = 16;
-	int g = 15;
-	int h = 17;
-	int i = 18;
-	int j = 19;
-	mylista = ft_lstnew(&a);
-	if (!mylista)
-		return 1;
-	ft_lstadd_back(&mylista, ft_lstnew(&b));
-	ft_lstadd_back(&mylista, ft_lstnew(&c));
-	ft_lstadd_back(&mylista, ft_lstnew(&d));
-	ft_lstadd_back(&mylista, ft_lstnew(&e));
-	mylistb = ft_lstnew(&f);
-	if (!mylistb)
-		return 1;
-	ft_lstadd_back(&mylistb, ft_lstnew(&g));
-	ft_lstadd_back(&mylistb, ft_lstnew(&h));
-	ft_lstadd_back(&mylistb, ft_lstnew(&i));
-	ft_lstadd_back(&mylistb, ft_lstnew(&j));
-	ra(&mylista);
+	node = (*b)->next;
+	(*b)->next = NULL;
+	ft_lstiadd_back(&node, *b);
+	*b = node;
 }
+
+void	rr(t_listi **a, t_listi **b)
+{
+	ra(a);
+	rb(b);
+}
+
+// void	print(int content)
+// {
+// 	ft_printf("%i ", (content));
+// }
+
+// int	main()
+// {
+// 	t_listi *mylista;
+// 	t_listi *mylistb;
+
+// 	mylista = ft_lstinew(10);
+// 	if (!mylista)
+// 		return 1;
+// 	ft_lstiadd_back(&mylista, ft_lstinew(11));
+// 	ft_lstiadd_back(&mylista, ft_lstinew(12));
+// 	ft_lstiadd_back(&mylista, ft_lstinew(13));
+// 	ft_lstiadd_back(&mylista, ft_lstinew(14));
+// 	mylistb = ft_lstinew(15);
+// 	if (!mylistb)
+// 		return 1;
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(16));
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(17));
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(18));
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(19));
+// 	rr(&mylista, &mylistb);
+// 	ft_lstiiter((mylista), print);
+// 	ft_printf("\n");
+// 	ft_lstiiter((mylistb), print);
+// }

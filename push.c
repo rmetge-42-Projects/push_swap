@@ -6,75 +6,64 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:35:38 by rmetge            #+#    #+#             */
-/*   Updated: 2024/12/19 18:37:12 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/08 15:24:40 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_listi **a, t_listi **b)
 {
-	t_list	*temp;
+	t_listi	*temp;
 
-	if (ft_lstsize(*b) == 0)
-		return;
-	temp =(*b)->next;
-	ft_lstadd_front(a, *b);
+	if (ft_lstisize(*b) == 0)
+		return ;
+	temp = (*b)->next;
+	ft_lstiadd_front(a, *b);
 	*b = temp;
-	ft_lstiter((*a), print);
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_listi **a, t_listi **b)
 {
-	t_list	*temp;
+	t_listi	*temp;
 
-	if (ft_lstsize(*b) == 0)
-		return;
-	temp =(*b)->next;
-	ft_lstadd_front(b, *a);
+	if (ft_lstisize(*a) == 0)
+		return ;
+	temp = (*a)->next;
+	ft_lstiadd_front(b, *a);
 	*a = temp;
-	ft_lstiter((*b), print);
 }
-
 
 // # include <stdio.h>
 // # include <stdlib.h>
 // # include <string.h>
 
-// void	print(void *content)
+// void	print(int content)
 // {
-// 	printf("%d " , *(int *)(content));
-
+// 	ft_printf("%i " ,content);
 // }
 
 // int	main()
 // {
-// 	t_list *mylista;
-// 	t_list *mylistb;
+// 	t_listi *mylista;
+// 	t_listi *mylistb;
 
-// 	int	a = 11;
-// 	int b = 10;
-// 	int c = 12;
-// 	int d = 13;
-// 	int e = 14;
-// 	int	f = 16;
-// 	int g = 15;
-// 	int h = 17;
-// 	int i = 18;
-// 	int j = 19;
-// 	mylista = ft_lstnew(&a);
+// 	mylista = ft_lstinew(10);
 // 	if (!mylista)
 // 		return 1;
-// 	ft_lstadd_back(&mylista, ft_lstnew(&b));
-// 	ft_lstadd_back(&mylista, ft_lstnew(&c));
-// 	ft_lstadd_back(&mylista, ft_lstnew(&d));
-// 	ft_lstadd_back(&mylista, ft_lstnew(&e));
-// 	mylistb = ft_lstnew(&f);
+// 	ft_lstiadd_back(&mylista, ft_lstinew(11));
+// 	ft_lstiadd_back(&mylista, ft_lstinew(12));
+// 	ft_lstiadd_back(&mylista, ft_lstinew(13));
+// 	ft_lstiadd_back(&mylista, ft_lstinew(14));
+// 	mylistb = ft_lstinew(15);
 // 	if (!mylistb)
 // 		return 1;
-// 	ft_lstadd_back(&mylistb, ft_lstnew(&g));
-// 	ft_lstadd_back(&mylistb, ft_lstnew(&h));
-// 	ft_lstadd_back(&mylistb, ft_lstnew(&i));
-// 	ft_lstadd_back(&mylistb, ft_lstnew(&j));
-// 	pb(&mylista, &mylistb);
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(16));
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(17));
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(18));
+// 	ft_lstiadd_back(&mylistb, ft_lstinew(19));
+// 	pa(&mylista, &mylistb);
+// 	ft_lstiiter((mylista), print);
+// 	ft_printf("\n");
+// 	ft_lstiiter((mylistb), print);
 // }
