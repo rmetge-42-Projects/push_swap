@@ -8,12 +8,13 @@ RM = rm -rf
 SRC = swap.c \
 	push.c\
 	rotate.c\
-	lib_liste.c\
-	lib_liste_2.c\
+	lib_lst.c\
+	lib_lst_2.c\
 	reverse_rotate.c\
 	main.c\
 	error.c\
 	liste_chaine.c\
+	trie_small.c\
 
 OBJ_DIR = obj
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)

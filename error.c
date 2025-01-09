@@ -6,38 +6,25 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:49:14 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/09 09:54:34 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/09 15:15:26 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lensplit(char **str)
+static int	ft_lennbr(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_lennbr(char *str)
-{
-	int	i;
-	int	nbr;
-	int	len;
+	int		i;
+	int		len;
+	char	c;
 
 	i = 0;
 	len = 0;
 	while (str[i])
 	{
-		nbr = 0;
-		if (str[i] != 32 && (str[i] < 48 || str[i] > 57))
-		{
-			if (str[i] != 43 && str[i] != 45)
-				return (-1);
-		}
+		c = str[i];
+		if (c != 32 && (c < 48 || c > 57) && c != 43 && c != 45)
+			return (-1);
 		while (str[i] == ' ')
 			i++;
 		if (str[i] == '-' || str[i] == '+')
@@ -45,20 +32,14 @@ int	ft_lennbr(char *str)
 		if (str[i] == '-' || str[i] == '+' || str[i] == ' ' || str[i] == '\0')
 			return (-1);
 		while (str[i] >= '0' && str[i] <= '9')
-		{
 			i++;
-			nbr = 1;
-		}
-		// if (str[i] == '-' || str[i] == '+')
-		// 	return (-1);
-		if (nbr == 1)
+		if (str[i - 1] >= '0' && str[i - 1] <= '9')
 			len++;
 	}
 	return (len);
 }
 
-
-int	ft_doublon(char **str)
+static int	ft_doublon(char **str)
 {
 	int	i;
 	int	j;
@@ -67,6 +48,8 @@ int	ft_doublon(char **str)
 	while (str[i + 1] && str[i])
 	{
 		j = i + 1;
+		if (str[i][0] == '\0')
+			return (0);
 		while (str[j])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
@@ -78,7 +61,7 @@ int	ft_doublon(char **str)
 	return (1);
 }
 
-int	ft_lim(char **str)
+static int	ft_lim(char **str)
 {
 	int		i;
 
@@ -92,7 +75,7 @@ int	ft_lim(char **str)
 	return (1);
 }
 
-void	ft_error(int argc, char **argv)
+int	ft_error(int argc, char **argv)
 {
 	int	nbr;
 	int	i;
@@ -101,10 +84,6 @@ void	ft_error(int argc, char **argv)
 	r = 1;
 	if (argc < 2)
 		r = 0;
-	if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	else
-		argv++;
 	i = 0;
 	while (argv[i])
 	{
@@ -117,9 +96,7 @@ void	ft_error(int argc, char **argv)
 		r = 0;
 	if (ft_lim(argv) == 0)
 		r = 0;
-	if (r == 0)
-	{
-		ft_putstr_fd ("Error\n", 2);
-		return ;
-	}
+	return (r);
+	// if (r == 0)
+	// 	return (ft_putstr_fd ("Error\n", 2));
 }

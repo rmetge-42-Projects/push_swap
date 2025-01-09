@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:16:51 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/08 15:24:05 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/09 13:49:31 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sa(t_listi **a)
 	node = (*a)->next;
 	(*a)->next = (*a)->next->next;
 	ft_lstiadd_front(a, node);
+	ft_printf("sa\n");
 }
 
 void	sb(t_listi **b)
@@ -32,12 +33,14 @@ void	sb(t_listi **b)
 	node = (*b)->next;
 	(*b)->next = (*b)->next->next;
 	ft_lstiadd_front(b, node);
+	ft_printf("sb\n");
 }
 
 void	ss(t_listi **a, t_listi **b)
 {
 	sa(a);
 	sb(b);
+	ft_printf("ss\n");
 }
 
 // # include <stdio.h>
