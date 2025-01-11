@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:03:48 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/11 12:39:07 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/11 12:48:15 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 	// 	(a) = (a)->next;
 	// }
 	ft_lstiiter(a, print);
+	ft_printf("\n");
 	ft_lstiiter(b, print);
 	if (argc == 2)
 		ft_free(argv);

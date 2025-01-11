@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:43:16 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/11 12:39:32 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/11 12:49:44 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,22 @@ void	ft_index(t_listi **lst)
 	(*lst) = tmp;
 }
 
-// void	ft_trie_100(t_listi **a, t_listi **b)
-// {
-// 	int	size_b;
+void	ft_trie_100(t_listi **a, t_listi **b)
+{
+	int	size_b;
 
-// 	size_b = 0;
-// 	while (size_b < 2)
-// 	{
-// 		if ((*a)->index == 1 && (*a)->index == -1)
-// 			pb(a, b);
-// 		else
-// 			ra(a);
-// 	}
-// 	pb(a, b);
-// 	ft_trie_3(b);
-// }
+	size_b = 0;
+	while (size_b < 2)
+	{
+
+		if ((*a)->index == 1 || (*a)->index == -1)
+		{
+			pb(a, b);
+			size_b++;
+		}
+		else
+			ra(a);
+	}
+	pb(a, b);
+	ft_trie_3(b);
+}
