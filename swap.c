@@ -6,40 +6,51 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:16:51 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/09 13:49:31 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/21 09:10:39 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_listi **a)
+void	slst(t_listi **lst)
 {
 	t_listi	*node;
 
-	if (ft_lstisize(*a) < 2)
+	if (ft_lstisize(*lst) < 2)
 		return ;
-	node = (*a)->next;
-	(*a)->next = (*a)->next->next;
-	ft_lstiadd_front(a, node);
+	node = (*lst)->next;
+	(*lst)->next = (*lst)->next->next;
+	ft_lstiadd_front(lst, node);
+}
+
+// void	sb(t_listi **b)
+// {
+// 	t_listi	*node;
+
+// 	if (ft_lstisize(*b) < 2)
+// 		return ;
+// 	node = (*b)->next;
+// 	(*b)->next = (*b)->next->next;
+// 	ft_lstiadd_front(b, node);
+// 	ft_printf("sb\n");
+// }
+
+void	sa(t_listi **a)
+{
+	slst(a);
 	ft_printf("sa\n");
 }
 
 void	sb(t_listi **b)
 {
-	t_listi	*node;
-
-	if (ft_lstisize(*b) < 2)
-		return ;
-	node = (*b)->next;
-	(*b)->next = (*b)->next->next;
-	ft_lstiadd_front(b, node);
+	slst(b);
 	ft_printf("sb\n");
 }
 
 void	ss(t_listi **a, t_listi **b)
 {
-	sa(a);
-	sb(b);
+	slst(a);
+	slst(b);
 	ft_printf("ss\n");
 }
 

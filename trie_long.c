@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:43:16 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/11 12:49:44 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/21 17:13:00 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_position(t_listi **lst)
 {
-	int	p;
+	int		p;
 	t_listi	*tmp;
 
 	p = 0;
@@ -30,14 +30,13 @@ void	ft_position(t_listi **lst)
 
 static int	ft_min(t_listi *lst, int min)
 {
-	int	new_min;
+	int		new_min;
 	t_listi	*tmp;
 
 	tmp = lst;
 	new_min = lst->content;
 	while (new_min <= min && new_min != ft_lstilast(lst)->content)
 	{
-
 		lst = lst->next;
 		new_min = lst->content;
 	}
@@ -51,12 +50,12 @@ static int	ft_min(t_listi *lst, int min)
 	return (new_min);
 }
 
-void	ft_index(t_listi **lst)
+int	ft_index(t_listi **lst)
 {
-	int	min;
-	int	i;
+	int		min;
+	int		i;
 	t_listi	*tmp;
-	int	max;
+	int		max;
 
 	i = 1;
 	tmp = (*lst);
@@ -71,28 +70,31 @@ void	ft_index(t_listi **lst)
 		(*lst) = tmp;
 		min = ft_min(*lst, min);
 	}
-	while ((*lst)->content != max)
-		(*lst) = (*lst)->next;
-	(*lst)->index = -1;
-	(*lst) = tmp;
+	return (i - 1);
 }
 
-void	ft_trie_100(t_listi **a, t_listi **b)
+void	ft_trie_100(t_listi **a, t_listi **b, int i_max)
 {
-	int	size_b;
+	int	size;
+	int	i;
 
-	size_b = 0;
-	while (size_b < 2)
+	size = ft_lstisize(*a);
+	i = i_max;
+	ft_push_to_b(a, b);
+	ft_trie_3(a);
+	while (*b)
 	{
-
-		if ((*a)->index == 1 || (*a)->index == -1)
-		{
-			pb(a, b);
-			size_b++;
-		}
-		else
+		ft_mouvement(a, b);
+	}
+	ft_position(a);
+	if ((*a)->index > size / 2)
+	{
+		while ((*a)->index > 1)
 			ra(a);
 	}
-	pb(a, b);
-	ft_trie_3(b);
+	else
+	{
+		while ((*a)->index > 1)
+			rra(a);
+	}
 }

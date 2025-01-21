@@ -6,13 +6,13 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:24:45 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/09 13:49:48 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/15 13:44:51 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_listi **a)
+void	rrlst(t_listi **lst)
 {
 	t_listi	*node;
 	t_listi	*node2;
@@ -21,9 +21,9 @@ void	rra(t_listi **a)
 	int		n;
 
 	i = 0;
-	(node3) = *a;
-	node = ft_lstilast(*a);
-	n = ft_lstisize(*a);
+	(node3) = *lst;
+	node = ft_lstilast(*lst);
+	n = ft_lstisize(*lst);
 	while ((n -1) > i)
 	{
 		node2 = (node3)->next;
@@ -32,39 +32,19 @@ void	rra(t_listi **a)
 		(node3) = node2;
 		i++;
 	}
-	(*a) = node;
+	(*lst) = node;
+}
+
+void	rra(t_listi **a)
+{
+	rrlst(a);
 	ft_printf("rra\n");
 }
 
 void	rrb(t_listi **b)
 {
-	t_listi	*node;
-	t_listi	*node2;
-	t_listi	*node3;
-	int		i;
-	int		n;
-
-	i = 0;
-	(node3) = *b;
-	node = ft_lstilast(*b);
-	n = ft_lstisize(*b);
-	while ((n -1) > i)
-	{
-		node2 = (node3)->next;
-		(node3)->next = NULL;
-		ft_lstiadd_back(&node, node3);
-		(node3) = node2;
-		i++;
-	}
-	(*b) = node;
+	rrlst(b);
 	ft_printf("rrb\n");
-}
-
-void	rrr(t_listi **a, t_listi **b)
-{
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
 }
 
 // void	print(int content)

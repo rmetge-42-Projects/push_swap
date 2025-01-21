@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:49:14 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/09 15:15:26 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/21 16:55:32 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,4 @@ int	ft_error(int argc, char **argv)
 	if (ft_lim(argv) == 0)
 		r = 0;
 	return (r);
-	// if (r == 0)
-	// 	return (ft_putstr_fd ("Error\n", 2));
 }

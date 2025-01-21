@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:03:48 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/11 12:48:15 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/13 13:04:08 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 {
 	t_listi	*a;
 	t_listi	*b;
+	int		i_max;
 
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -46,9 +47,12 @@ int	main(int argc, char **argv)
 		ft_trie_3(&a);
 	else if (ft_lensplit(argv) == 5)
 		ft_trie_5(&a, &b);
-	ft_position(&a);
-	ft_index(&a);
-	ft_trie_100(&a, &b);
+	else
+	{
+		ft_position(&a);
+		i_max = ft_index(&a);
+		ft_trie_100(&a, &b, i_max);
+	}
 	// while (a)
 	// {
 	// 	ft_printf("%i  %i  %i\n", (a)->position, (a)->index, (a)->content);

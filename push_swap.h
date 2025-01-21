@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 10:42:54 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/11 12:38:16 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/15 13:45:19 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct i_list
 	int				content;
 	int				position;
 	int				index;
+	int				coup;
 	struct i_list	*next;
 }	t_listi;
 
@@ -56,9 +57,13 @@ t_listi	**ft_trie_3(t_listi **a);
 t_listi	**ft_trie_2(t_listi **a);
 t_listi	**ft_trie_5(t_listi **a, t_listi **b);
 int		get_min(t_listi *a);
-int	get_max(t_listi *a);
+int		get_max(t_listi *a);
 void	ft_position(t_listi **lst);
-void	ft_index(t_listi **lst);
-void	ft_trie_100(t_listi **a, t_listi **b);
+int		ft_index(t_listi **lst);
+void	ft_trie_100(t_listi **a, t_listi **b, int i_max);
+int		ft_calculcoup(t_listi **a, t_listi **b);
+void	ft_coup(t_listi **a, t_listi **b);
+int		ft_coup_min(t_listi *b);
+void	ft_mouvement(t_listi **a, t_listi **b);
 
 #endif

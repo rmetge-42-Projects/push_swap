@@ -6,38 +6,49 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:40:19 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/09 13:49:40 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/15 11:43:58 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_listi **a)
+void	rlst(t_listi **lst)
 {
 	t_listi	*node;
 
-	node = (*a)->next;
-	(*a)->next = NULL;
-	ft_lstiadd_back(&node, *a);
-	*a = node;
+	node = (*lst)->next;
+	(*lst)->next = NULL;
+	ft_lstiadd_back(&node, *lst);
+	*lst = node;
+}
+
+// void	rb(t_listi **b)
+// {
+// 	t_listi	*node;
+
+// 	node = (*b)->next;
+// 	(*b)->next = NULL;
+// 	ft_lstiadd_back(&node, *b);
+// 	*b = node;
+// 	ft_printf("rb\n");
+// }
+
+void	ra(t_listi **a)
+{
+	rlst(a);
 	ft_printf("ra\n");
 }
 
 void	rb(t_listi **b)
 {
-	t_listi	*node;
-
-	node = (*b)->next;
-	(*b)->next = NULL;
-	ft_lstiadd_back(&node, *b);
-	*b = node;
+	rlst(b);
 	ft_printf("rb\n");
 }
 
 void	rr(t_listi **a, t_listi **b)
 {
-	ra(a);
-	rb(b);
+	rlst(a);
+	rlst(b);
 	ft_printf("rr\n");
 }
 
