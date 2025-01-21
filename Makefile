@@ -16,6 +16,7 @@ SRC = swap.c \
 	liste_chaine.c\
 	trie_small.c\
 	trie_long.c\
+	coup.c\
 
 OBJ_DIR = obj
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
