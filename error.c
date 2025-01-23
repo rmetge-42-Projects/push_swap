@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:49:14 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/21 16:55:32 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/23 16:55:41 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,27 +74,39 @@ static int	ft_lim(char **str)
 	}
 	return (1);
 }
+int	ft_space(int argc, char **argv)
+{
+	int i;
+
+	i = 0;
+	if (argc == 2)
+	{
+		if (argv[0] == NULL)
+			return (0);
+	}
+	return (1);
+}
 
 int	ft_error(int argc, char **argv)
 {
 	int	nbr;
 	int	i;
-	int	r;
 
-	r = 1;
 	if (argc < 2)
-		r = 0;
+		return (0);
 	i = 0;
+	if (ft_space(argc, argv) == 0)
+		return (0);
 	while (argv[i])
 	{
 		nbr = ft_lennbr(argv[i]);
 		if (nbr == -1 || (argc > 2 && nbr > 1))
-			r = 0;
+			return (0);
 		i++;
 	}
 	if (ft_doublon(argv) == 0)
-		r = 0;
+		return (0);
 	if (ft_lim(argv) == 0)
-		r = 0;
-	return (r);
+		return (0);
+	return (1);
 }

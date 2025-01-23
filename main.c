@@ -6,16 +6,11 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:03:48 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/13 13:04:08 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/23 16:57:19 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print(int content)
-{
-	ft_printf("%d ", content);
-}
 
 int	ft_lensplit(char **str)
 {
@@ -25,6 +20,26 @@ int	ft_lensplit(char **str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+void	ft_free_all(int argc, char **argv, t_listi *a, t_listi *b)
+{
+	if (argc == 2)
+		ft_free(argv);
+	ft_lsticlear(&a);
+	ft_lsticlear(&b);
+}
+
+int	ft_lst_trie(t_listi *a)
+{
+	while (a ->next && a)
+	{
+		if (a->content < a->next->content)
+			a = a->next;
+		else
+			return (1);
+	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -37,10 +52,10 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	else
 		argv++;
-	if (ft_error(argc, argv) == 0)
-		return (ft_putstr_fd("Error\n", 2), 1);
 	a = chang_to_list(argv);
 	b = NULL;
+	if (ft_error(argc, argv) == 0 || ft_lst_trie(a) == 0)
+		return (ft_free_all(argc, argv, a, b), ft_putstr_fd("Error\n", 2), 1);
 	if (ft_lensplit(argv) == 2)
 		ft_trie_2(&a);
 	else if (ft_lensplit(argv) == 3)
@@ -53,16 +68,5 @@ int	main(int argc, char **argv)
 		i_max = ft_index(&a);
 		ft_trie_100(&a, &b, i_max);
 	}
-	// while (a)
-	// {
-	// 	ft_printf("%i  %i  %i\n", (a)->position, (a)->index, (a)->content);
-	// 	(a) = (a)->next;
-	// }
-	ft_lstiiter(a, print);
-	ft_printf("\n");
-	ft_lstiiter(b, print);
-	if (argc == 2)
-		ft_free(argv);
-	ft_lsticlear(&a);
-	ft_lsticlear(&b);
+	ft_free_all(argc, argv, a, b);
 }

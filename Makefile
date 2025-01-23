@@ -17,6 +17,10 @@ SRC = swap.c \
 	trie_small.c\
 	trie_long.c\
 	coup.c\
+	coup_a.c\
+	trie.c\
+
+SRC_BONUS =
 
 OBJ_DIR = obj
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
@@ -49,6 +53,10 @@ clean:
 fclean: clean
 	make -C $(LIBFT_PATH) fclean
 	$(RM) $(NAME)
+
+bonus: ${OBJ_BONUS} ${OBJ}
+	ar rcs ${NAME} ${OBJ} ${OBJ_BONUS}
+
 
 re: fclean all
 
