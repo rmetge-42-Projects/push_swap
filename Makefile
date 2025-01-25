@@ -20,10 +20,24 @@ SRC = swap.c \
 	coup_a.c\
 	trie.c\
 
-SRC_BONUS =
+SRC_BONUS = checker.c\
+			error.c\
+			swap.c \
+			push.c\
+			rotate.c\
+			lib_lst.c\
+			lib_lst_2.c\
+			reverse_rotate.c\
+			liste_chaine.c\
+			get_next_line_utils.c\
+			get_next_line.c\
+			push_utile.c\
+
+
 
 OBJ_DIR = obj
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
+OBJ_BONUS = $(SRC_BONUS:%.c=$(OBJ_DIR)/%.o)
 
 LIBFT_PATH = ./libft
 
@@ -54,9 +68,10 @@ fclean: clean
 	make -C $(LIBFT_PATH) fclean
 	$(RM) $(NAME)
 
-bonus: ${OBJ_BONUS} ${OBJ}
-	ar rcs ${NAME} ${OBJ} ${OBJ_BONUS}
+bonus: checker
 
+checker: $(LIBFT) $(OBJ_DIR) ${OBJ_BONUS}
+	$(CC) $(CFLAGS) ${OBJ_BONUS} $(LIBFT) -o checker
 
 re: fclean all
 

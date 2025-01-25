@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 13:24:45 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/15 11:46:54 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/25 15:20:13 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ void	rrlst(t_listi **lst)
 	(*lst) = node;
 }
 
+void	rrlstab(t_listi **a, t_listi **b)
+{
+	rrlst(a);
+	rrlst(b);
+}
+
 void	rra(t_listi **a)
 {
 	rrlst(a);
@@ -46,30 +52,6 @@ void	rrb(t_listi **b)
 	rrlst(b);
 	ft_printf("rrb\n");
 }
-
-// void	rrb(t_listi **b)
-// {
-// 	t_listi	*node;
-// 	t_listi	*node2;
-// 	t_listi	*node3;
-// 	int		i;
-// 	int		n;
-
-// 	i = 0;
-// 	(node3) = *b;
-// 	node = ft_lstilast(*b);
-// 	n = ft_lstisize(*b);
-// 	while ((n -1) > i)
-// 	{
-// 		node2 = (node3)->next;
-// 		(node3)->next = NULL;
-// 		ft_lstiadd_back(&node, node3);
-// 		(node3) = node2;
-// 		i++;
-// 	}
-// 	(*b) = node;
-// 	ft_printf("rrb\n");
-// }
 
 void	rrr(t_listi **a, t_listi **b)
 {

@@ -6,11 +6,33 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:35:38 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/09 13:49:56 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/25 15:15:10 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	palst(t_listi **a, t_listi **b)
+{
+	t_listi	*temp;
+
+	if (ft_lstisize(*b) == 0)
+		return ;
+	temp = (*b)->next;
+	ft_lstiadd_front(a, *b);
+	*b = temp;
+}
+
+void	pblst(t_listi **a, t_listi **b)
+{
+	t_listi	*temp;
+
+	if (ft_lstisize(*a) == 0)
+		return ;
+	temp = (*a)->next;
+	ft_lstiadd_front(b, *a);
+	*a = temp;
+}
 
 void	pa(t_listi **a, t_listi **b)
 {

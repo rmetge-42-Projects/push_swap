@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 16:03:48 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/23 16:57:19 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/24 09:29:42 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int	main(int argc, char **argv)
 {
 	t_listi	*a;
 	t_listi	*b;
-	int		i_max;
 
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -54,8 +53,10 @@ int	main(int argc, char **argv)
 		argv++;
 	a = chang_to_list(argv);
 	b = NULL;
-	if (ft_error(argc, argv) == 0 || ft_lst_trie(a) == 0)
+	if (ft_error(argc, argv) == 0)
 		return (ft_free_all(argc, argv, a, b), ft_putstr_fd("Error\n", 2), 1);
+	if (ft_lst_trie(a) == 0)
+		return (ft_free_all(argc, argv, a, b), 1);
 	if (ft_lensplit(argv) == 2)
 		ft_trie_2(&a);
 	else if (ft_lensplit(argv) == 3)
@@ -63,10 +64,6 @@ int	main(int argc, char **argv)
 	else if (ft_lensplit(argv) == 5)
 		ft_trie_5(&a, &b);
 	else
-	{
-		ft_position(&a);
-		i_max = ft_index(&a);
-		ft_trie_100(&a, &b, i_max);
-	}
+		ft_trie_100(&a, &b);
 	ft_free_all(argc, argv, a, b);
 }

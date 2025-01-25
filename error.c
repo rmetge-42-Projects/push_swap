@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:49:14 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/23 16:55:41 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/25 17:57:05 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ static int	ft_lim(char **str)
 	}
 	return (1);
 }
+
 int	ft_space(int argc, char **argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (argc == 2)

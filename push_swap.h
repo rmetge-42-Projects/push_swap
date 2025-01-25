@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 10:42:54 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/21 17:04:15 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/25 17:41:01 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct i_list
 	struct i_list	*next;
 }	t_listi;
 
-void	printi(int content);
 void	ra(t_listi **a);
 void	rb(t_listi **b);
 void	rr(t_listi **a, t_listi **b);
@@ -43,6 +42,14 @@ void	rrb(t_listi **b);
 void	rrr(t_listi **a, t_listi **b);
 void	pa(t_listi **a, t_listi **b);
 void	pb(t_listi **a, t_listi **b);
+void	slst(t_listi **lst);
+void	rlst(t_listi **lst);
+void	rrlst(t_listi **lst);
+void	pblst(t_listi **a, t_listi **b);
+void	palst(t_listi **a, t_listi **b);
+void	rlstab(t_listi **a, t_listi **b);
+void	rrlstab(t_listi **a, t_listi **b);
+void	slstab(t_listi **a, t_listi **b);
 int		ft_lstisize(t_listi *lst);
 t_listi	*ft_lstinew(int content);
 void	ft_lsticlear(t_listi **lst);
@@ -62,18 +69,22 @@ int		get_min(t_listi *a);
 int		get_max(t_listi *a);
 void	ft_position(t_listi **lst);
 int		ft_index(t_listi **lst);
-void	ft_trie_100(t_listi **a, t_listi **b, int i_max);
+void	ft_trie_100(t_listi **a, t_listi **b);
 int		ft_calculcoup(t_listi **a, t_listi **b);
 void	ft_coup(t_listi **a, t_listi **b);
 int		ft_coup_min(t_listi *b);
 void	ft_mouvement(t_listi **a, t_listi **b);
 void	ft_moova(t_listi **a, t_listi **b, int coup_min);
-void	print(int content);
+// void	print(int content);
 int		ft_posa(t_listi *a, t_listi *b);
 int		ft_calculcoup(t_listi **a, t_listi **b);
 void	ft_coupa(t_listi **a, int c);
 void	ft_ra_rra(t_listi **a, t_listi **b);
 void	ft_moova(t_listi **a, t_listi **b, int coup_min);
 void	ft_push_to_b(t_listi **a, t_listi **b);
+void	ft_free_all(int argc, char **argv, t_listi *a, t_listi *b);
+int		ft_lst_trie(t_listi *a);
+void	ft_free_all(int argc, char **argv, t_listi *a, t_listi *b);
+int		ft_lensplit(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 09:43:16 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/21 17:13:00 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/25 18:03:56 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ int	ft_index(t_listi **lst)
 	return (i - 1);
 }
 
-void	ft_trie_100(t_listi **a, t_listi **b, int i_max)
+void	ft_trie_100(t_listi **a, t_listi **b)
 {
 	int	size;
-	int	i;
 
 	size = ft_lstisize(*a);
-	i = i_max;
 	ft_push_to_b(a, b);
 	ft_trie_3(a);
 	while (*b)

@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:40:19 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/15 11:43:58 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/25 15:19:24 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void	rlst(t_listi **lst)
 	(*lst)->next = NULL;
 	ft_lstiadd_back(&node, *lst);
 	*lst = node;
+}
+
+void	rlstab(t_listi **a, t_listi **b)
+{
+	rlst(a);
+	rlst(b);
 }
 
 // void	rb(t_listi **b)
