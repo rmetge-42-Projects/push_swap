@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 08:55:20 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/25 18:16:02 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/27 09:32:51 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,31 +57,40 @@ void	ft_application(t_listi **a, t_listi **b, char *str)
 		pblst(a, b);
 }
 
+void	ft_valid_a_b(t_listi **a, t_listi **b, char *str)
+{
+	if ((ft_strncmp(str, "ra\n", ft_strlen(str)) == 0
+			|| ft_strncmp(str, "rra\n", ft_strlen(str)) == 0
+			|| ft_strncmp(str, "sa\n", ft_strlen(str)) == 0
+			|| ft_strncmp(str, "pa\n", ft_strlen(str)) == 0) && (*a) == NULL)
+		return ;
+	else if ((ft_strncmp(str, "rb\n", ft_strlen(str)) == 0
+			|| ft_strncmp(str, "rrb\n", ft_strlen(str)) == 0
+			|| ft_strncmp(str, "sb\n", ft_strlen(str)) == 0
+			|| ft_strncmp(str, "pb\n", ft_strlen(str)) == 0) && (*b) == NULL)
+		return ;
+	ft_application(a, b, str);
+	return ;
+}
+
 int	ft_gnl(t_listi **a, t_listi **b)
 {
-	char	**dest;
+	char	*dest;
 	int		x;
 	int		i;
 
 	x = 0;
 	i = 0;
-	dest = (char **)calloc(100, sizeof(char *));
-	dest[i] = get_next_line(0);
-	while (dest[i] != NULL)
+	dest = get_next_line(0);
+	while (dest != NULL)
 	{
-		if (ft_test_arg(dest[i]) == 0)
+		if (ft_test_arg(dest) == 0)
 			x = 1;
+		ft_valid_a_b(a, b, dest);
 		i++;
-		dest[i] = get_next_line(0);
+		free(dest);
+		dest = get_next_line(0);
 	}
-	i = 0;
-	while (dest[i] != NULL)
-	{
-		ft_application(a, b, dest[i]);
-		free(dest[i]);
-		i++;
-	}
-	free(dest);
 	return (x);
 }
 
