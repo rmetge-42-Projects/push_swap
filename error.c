@@ -6,7 +6,7 @@
 /*   By: rmetge <rmetge@student.42perpignan.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:49:14 by rmetge            #+#    #+#             */
-/*   Updated: 2025/01/25 17:57:05 by rmetge           ###   ########.fr       */
+/*   Updated: 2025/01/27 10:21:16 by rmetge           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_lennbr(char *str)
 		c = str[i];
 		if (c != 32 && (c < 48 || c > 57) && c != 43 && c != 45)
 			return (-1);
-		while (str[i] == ' ')
+		while (str[i] == 32)
 			i++;
 		if (str[i] == '-' || str[i] == '+')
 			i++;
